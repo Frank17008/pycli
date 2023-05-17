@@ -12,6 +12,16 @@ async function createProject(appName) {
             message: "请输入项目描述信息:",
         },
         {
+            type: "input",
+            name: "author",
+            message: "请输入作者:",
+        },
+        {
+            type: "input",
+            name: "keywords",
+            message: "请输入项目关键词:",
+        },
+        {
             type: "list",
             message: "请选择一个模板下载:",
             name: "template_name",
@@ -19,7 +29,7 @@ async function createProject(appName) {
         },
     ]
 
-    const { template_name, description } = await inquirer.prompt(prompList)
+    const { template_name, author, description } = await inquirer.prompt(prompList)
     // 新建项目的路径
     const project_dir = path.join(process.cwd(), appName)
 
@@ -27,7 +37,7 @@ async function createProject(appName) {
         // 下载项目到本地
         await download(template_name, project_dir, appName)
         // 修改package.json
-        await updatePackage(project_dir, { name: appName, description, template: template_name })
+        await updatePackage(project_dir, { name: appName, description, template: template_name, author })
     } catch (error) {
         console.log(error)
     }

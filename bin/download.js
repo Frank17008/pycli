@@ -1,11 +1,13 @@
 import dl from "download-git-repo"
 import fse from "fs-extra"
 import chalk from "chalk"
+import ora from "ora"
 import { startLoading, endLoading } from "./loading.js"
 import config from "./repo.js"
 
 // 计算下载次数
 let count = 0
+const spinner = ora("初始化项目")
 
 export const download = (template_name, project_dir, app_name) => {
     // 模板的下载地址
@@ -16,6 +18,7 @@ export const download = (template_name, project_dir, app_name) => {
             if (count >= 3) {
                 count = 0
                 reject()
+                spinner.fail("下载模板失败,请检查网络后重试")
                 return
             }
             startLoading()
@@ -23,13 +26,14 @@ export const download = (template_name, project_dir, app_name) => {
                 endLoading()
                 if (err) {
                     // 出现下载错误,延时3秒重新下载3次
-                    console.log("\n下载失败,3s后下载重试...\n", err)
+                    spinner.fail("下载失败,3s后下载重试...\n")
                     await sleep()
                     execuate()
                 } else {
-                    const scripts = `cd ./${app_name} && npm install`
-                    console.log("  " + chalk.blue(`${scripts}`))
-                    console.log("  " + chalk.blue("npm run start"))
+                    spinner.succeed("项目初始化成功!请参考如下指令安装依赖后再运行\n")
+                    console.log("  " + chalk.blue(`进入目录: cd ./${app_name}\n`))
+                    console.log("  " + chalk.blue(`安装依赖: npm install\n`))
+                    console.log("  " + chalk.blue("启动项目: npm run start\n"))
                     resolve(null)
                     count = 0
                 }
