@@ -1,7 +1,7 @@
 // 模板下载地址
 export default {
     "py-react": {
-        url: "direct:http://192.168.101.96:8090/pointcloud_frontend/dms.git",
+        url: "direct:http://192.168.101.96:8090/pointcloud_frontend/project_template.git",
         bootstrap: "npm run start",
     },
     // "py-vue": {
