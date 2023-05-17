@@ -1,0 +1,336 @@
+@import 'antd/dist/antd.css';
+
+@font-face {
+  font-family: 'SourceHanCN';
+  src: url('/public/font/SourceHanSansCN-Regular.ttf') format('ttf');
+}
+@font-face {
+  font-family: 'ShiShangFont';
+  src: url('/public/font/digifaw.ttf');
+}
+
+#ice-container {
+  width: 100%;
+  height: 100%;
+  font-family: 'SourceHanCN';
+  & > div {
+    width: 100%;
+    height: 100%;
+  }
+}
+// Table样式
+@mixin tableStyle {
+  & {
+    :global {
+      .ant-table-wrapper,
+      .ant-spin-nested-loading,
+      .ant-spin-container,
+      .ant-table,
+      .ant-table-container {
+        height: 100%;
+        .ant-table-body {
+          overflow-y: auto !important;
+          @include scrollbarstyle;
+        }
+      }
+      .ant-table-thead > tr > th {
+        background-color: #ebf1ff;
+        border-bottom: 1px solid #fff;
+        border-right: 1px solid #fff;
+        font-weight: bold;
+      }
+      .ant-table-tbody > tr > td {
+        background-color: #f9f9f9;
+        border-bottom: 1px solid #fff;
+      }
+      .ant-table-tbody > tr:nth-child(even) {
+        td {
+          background-color: #f1f5ff;
+        }
+      }
+      .ant-table-thead
+        > tr
+        > th:not(:last-child):not(.ant-table-selection-column):not(.ant-table-row-expand-icon-cell):not([colspan])::before {
+        display: none;
+      }
+      .ant-table-thead > tr > th,
+      .ant-table-tbody > tr > td,
+      .ant-table tfoot > tr > th,
+      .ant-table tfoot > tr > td {
+        padding: 10px 16px;
+      }
+      .ant-table-tbody > tr.ant-table-row:hover > td,
+      .ant-table-tbody > tr > td.ant-table-cell-row-hover {
+        background-color: #ebf1ff;
+      }
+      .ant-table-tbody > tr.ant-table-row-selected > td {
+        background-color: #ebf1ff;
+      }
+      .ant-table-pagination.ant-pagination {
+        margin: 30px 0px;
+      }
+    }
+  }
+}
+
+// 绩效评价Table样式
+@mixin performancetableStyle {
+  & {
+    :global {
+      .ant-table-wrapper,
+      .ant-spin-nested-loading,
+      .ant-spin-container,
+      .ant-table,
+      .ant-table-container {
+        height: 100%;
+        .ant-table-body {
+          overflow-y: auto !important;
+          @include scrollbarstyle;
+        }
+      }
+      .ant-table-thead > tr > th {
+        background-color: #ebf1ff;
+        border-bottom: 1px solid #fff;
+        border-right: 1px solid #fff;
+        font-weight: bold;
+      }
+      .ant-table-tbody > tr > td {
+        background-color: #f9f9f9;
+        border-bottom: 1px solid #fff;
+      }
+      .ant-table-thead
+        > tr
+        > th:not(:last-child):not(.ant-table-selection-column):not(.ant-table-row-expand-icon-cell):not([colspan])::before {
+        display: none;
+      }
+      .ant-table-thead > tr > th,
+      .ant-table-tbody > tr > td,
+      .ant-table tfoot > tr > th,
+      .ant-table tfoot > tr > td {
+        padding: 10px 16px;
+      }
+      table tr th.ant-table-selection-column,
+      table tr td.ant-table-selection-column {
+        padding-left: 8px;
+        padding-right: 8px;
+      }
+      .ant-table-tbody > tr.ant-table-row:hover > td,
+      .ant-table-tbody > tr > td.ant-table-cell-row-hover {
+        background-color: #ebf1ff;
+      }
+      .ant-table-tbody > tr.ant-table-row-selected > td {
+        background-color: #ebf1ff;
+      }
+      .ant-table-pagination.ant-pagination {
+        margin: 30px 0px;
+      }
+    }
+  }
+}
+
+// 滚动条样式
+@mixin scrollStyle {
+  &::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+  }
+  &::-webkit-scrollbar-track {
+    width: 4px;
+    background: #2e404d;
+    border-radius: 2px;
+  }
+  &::-webkit-scrollbar-thumb {
+    width: 4px;
+    background: #0084ff;
+    border-radius: 2px;
+  }
+}
+
+// TABLE样式
+@mixin tableStyle {
+  :global {
+    .ant-table-body {
+      @include scrollStyle();
+    }
+    .ant-table-wrapper {
+      margin-top: 10px;
+      .ant-table-cell {
+        padding: 10px;
+        font-size: 12px;
+        white-space: nowrap;
+        text-align: center;
+        border-right: 1px solid #fff !important;
+      }
+      .ant-table-thead {
+        .ant-table-cell {
+          background: #dfdfdf;
+        }
+      }
+      .ant-table-body {
+        overflow-y: auto;
+        .ant-table-cell {
+          background: #f0f0f0;
+          border-top: 1px solid #fff;
+        }
+      }
+    }
+  }
+}
+
+// 滚动条样式无轨道
+@mixin tableScroll {
+  &::-webkit-scrollbar {
+    width: 4px;
+    height: 6px;
+  }
+  &::-webkit-scrollbar-thumb {
+    width: 4px;
+    height: 6px;
+    background: #0084ff;
+  }
+}
+
+// 单行文本超出省略
+@mixin ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+// 模态框样式
+@mixin ModalStyle {
+  & {
+    :global {
+      .ant-modal-close-x {
+        color: #fff;
+        width: 42px;
+        height: 42px;
+        line-height: 42px;
+      }
+      .ant-modal-header {
+        background-color: #0049ff;
+        border: none;
+        height: 42px;
+        display: flex;
+        align-items: center;
+        .ant-modal-title {
+          font-size: 14px;
+          font-weight: 500;
+          color: #fefefe;
+        }
+      }
+      .ant-modal-body {
+        background: #fff;
+        border: none;
+      }
+      .ant-modal-footer {
+        background: #fff;
+        border: none;
+        padding: 0 24px 24px 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        button {
+          font-size: 16px;
+          width: 74px;
+          height: 32px;
+          line-height: 100%;
+        }
+        button:nth-of-type(1) {
+          background: #0049ff;
+          border: 1px solid #0049ff;
+          border-radius: 4px;
+          color: #fff;
+          margin-right: 8px;
+        }
+        button:nth-of-type(2) {
+          border: 1px solid #0049ff;
+          background: #fff;
+          border-radius: 4px;
+          color: #0049ff;
+        }
+      }
+    }
+  }
+}
+
+// 树选择框文字超长省略
+@mixin selectEllipsis {
+  .ant-select-tree-treenode {
+    white-space: nowrap;
+    .ant-select-tree-node-content-wrapper {
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+  .ant-select-tree-switcher {
+    width: unset;
+  }
+}
+
+:global {
+  .userTreeSelect {
+    .ant-select-tree-treenode {
+      font-size: 12px;
+      white-space: nowrap;
+      .ant-select-tree-node-content-wrapper {
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+    .ant-select-tree-switcher {
+      width: unset;
+    }
+  }
+}
+
+// 全局覆盖样式
+.ant-select:not(.ant-select-customize-input) .ant-select-selector,
+.ant-select-dropdown,
+.ant-picker-panel-container,
+.ant-input,
+.ant-input-affix-wrapper,
+.ant-picker {
+  background-color: rgba(10, 22, 39, 0.8);
+  border: 1px solid #163e76;
+}
+
+.ant-select,
+.ant-select-arrow,
+.ant-select-dropdown,
+.ant-picker-cell,
+.ant-picker-header,
+.ant-picker-content th,
+.ant-picker-header button,
+.ant-select-item,
+.ant-input,
+.ant-picker,
+.ant-picker-suffix,
+.ant-form-item-label > label,
+.ant-picker-input > input,
+.ant-select-item-option-selected:not(.ant-select-item-option-disabled),
+.ant-input-suffix,
+.ant-empty {
+  color: #fff;
+}
+.ant-cascader-menu-item-active:not(.ant-cascader-menu-item-disabled),
+.ant-cascader-menu-item-active:not(.ant-cascader-menu-item-disabled):hover,
+.ant-cascader-menu-item:hover,
+.ant-picker-cell:hover:not(.ant-picker-cell-in-view) .ant-picker-cell-inner,
+.ant-picker-cell:hover:not(.ant-picker-cell-selected):not(.ant-picker-cell-range-start):not(.ant-picker-cell-range-end):not(.ant-picker-cell-range-hover-start):not(.ant-picker-cell-range-hover-end)
+  .ant-picker-cell-inner,
+.ant-select-item-option-active:not(.ant-select-item-option-disabled),
+.ant-picker-cell-in-view.ant-picker-cell-in-range::before,
+.ant-tree-treenode.ant-tree-treenode-selected,
+.ant-tree-treenode:hover,
+.ant-select-item-option-selected {
+  background: #2676e3ad;
+}
+.ant-picker-range-arrow,
+.ant-picker-range-arrow::before {
+  background: rgba(10, 22, 39, 0.8);
+}
+.ant-cascader-menu {
+  border-right: 1px solid #163e76;
+  @include scrollStyle;
+}

@@ -1,0 +1,42 @@
+.error-message {
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(221, 127, 127);
+  margin: 20px;
+  padding: 15px;
+  border-radius: 10px;
+
+  .error-text {
+    margin-top: 20px;
+  }
+
+  .error-refresh {
+    background-color: #4593ef;
+    width: 140px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    cursor: pointer;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+  }
+
+  .errorDetiles {
+    .detilesLink {
+      color: blue;
+    }
+
+    .errordetails {
+      background-color: rgb(204, 198, 190);
+      color: #777;
+      font-size: 80%;
+      border: 1px solid #777;
+      padding: 10px;
+      border-radius: 5px;
+    }
+  }
+}

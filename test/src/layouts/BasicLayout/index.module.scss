@@ -1,0 +1,59 @@
+@import '@/global.scss';
+.icestark-child-app {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  .title {
+    display: flex;
+    width: 100%;
+    height: 56px;
+    color: #fff;
+    padding: 0 20px;
+    background-color: #1d2228;
+    justify-content: space-between;
+    align-items: center;
+    .logo {
+      width: 300px;
+      font-size: 18px;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      .icon {
+        margin-right: 10px;
+        cursor: pointer;
+      }
+      .logo-img {
+        width: 40px;
+        height: 40px;
+        background: url(/public/images/logo.png) center center no-repeat;
+        background-size: contain;
+        margin-right: 13px;
+      }
+    }
+    .logout-content {
+      display: flex;
+      align-items: center;
+      .entry {
+        font-size: 18px;
+        color: #00dfff;
+        font-weight: bold;
+        cursor: pointer;
+      }
+    }
+  }
+  .content {
+    width: 100%;
+    flex: 1;
+    .site-layout {
+      height: 100%;
+      min-height: 100%;
+    }
+  }
+}

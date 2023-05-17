@@ -1,0 +1,58 @@
+.md-modal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2000;
+  visibility: hidden;
+  backface-visibility: hidden;
+  :global {
+    .md-content {
+      width: 100%;
+      height: 100%;
+      background-color: #f0f2f5;
+    }
+  }
+}
+
+.md-show {
+  visibility: visible;
+}
+
+.md-overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  visibility: hidden;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  opacity: 0;
+  transition: all 0.3s;
+}
+
+.md-show ~ .md-overlay {
+  opacity: 1;
+  visibility: visible;
+  background-color: #00000073;
+}
+
+.md-effect-1 {
+  :global {
+    .md-content {
+      transform: scale(0.7);
+      opacity: 0;
+      transition: all 0.3s;
+    }
+  }
+}
+
+.md-show.md-effect-1 {
+  :global {
+    .md-content {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+}

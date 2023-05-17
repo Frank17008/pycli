@@ -2,6 +2,7 @@ import dl from "download-git-repo"
 import fse from "fs-extra"
 import chalk from "chalk"
 import ora from "ora"
+import figlet from "figlet"
 import { startLoading, endLoading } from "./loading.js"
 import config from "./repo.js"
 
@@ -31,9 +32,11 @@ export const download = (template_name, project_dir, app_name) => {
                     execuate()
                 } else {
                     spinner.succeed("项目初始化成功!请参考如下指令安装依赖后再运行\n")
+                    console.log("\n" + chalk.magenta.bgBlueBright.bold(figlet.textSync("Point Cloud.Inc", { font: "Doom" })))
                     console.log("  " + chalk.blue(`进入目录: cd ./${app_name}\n`))
                     console.log("  " + chalk.blue(`安装依赖: npm install\n`))
                     console.log("  " + chalk.blue("启动项目: npm run start\n"))
+
                     resolve(null)
                     count = 0
                 }
