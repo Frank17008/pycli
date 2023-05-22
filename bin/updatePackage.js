@@ -9,6 +9,7 @@ export const updatePackage = async (dirpath, data) => {
         let packageJson = await fse.readFile(filename)
         packageJson = JSON.parse(packageJson.toString())
         packageJson = { ...packageJson, ...data }
+        // data.name
         packageJson = JSON.stringify(packageJson, null, "\t")
         await fse.writeFile(filename, packageJson)
     } catch (err) {
