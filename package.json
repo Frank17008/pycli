@@ -1,6 +1,6 @@
 {
     "name": "pcloud-cli",
-    "version": "0.1.1",
+    "version": "0.1.2",
     "description": "This is a template files to create a common project of PointCloud.Inc",
     "main": "index.js",
     "bin": {

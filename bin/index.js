@@ -1,11 +1,12 @@
 #! /usr/bin/env node
 
 import fs from "fs"
+import { readFile } from "fs/promises"
 import { program } from "commander"
 import createProject from "../actions/create.js"
 
-const packageJsonData = JSON.parse(fs.readFileSync("package.json", "utf8"))
-program.version(packageJsonData.version, "-v,--version")
+const packageJson = JSON.parse(await readFile(new URL("../package.json", import.meta.url)))
+program.version(packageJson.version, "-v,--version")
 
 // 创建新项目
 program
