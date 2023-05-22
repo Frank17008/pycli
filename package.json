@@ -17,7 +17,7 @@
     "author": "frankdong",
     "license": "ISC",
     "publishConfig": {
-        "registry": "https://www.npmjs.com/"
+        "registry": "https://registry.npmjs.org/"
     },
     "dependencies": {
         "commander": "^9.3.0",
