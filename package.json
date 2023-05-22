@@ -14,7 +14,7 @@
         "project template",
         "pointcloud"
     ],
-    "author": "Frank",
+    "author": "frankdong",
     "license": "ISC",
     "publishConfig": {
         "registry": "https://www.npmjs.com/"
