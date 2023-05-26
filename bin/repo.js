@@ -1,11 +1,9 @@
 // 模板下载地址
 export default {
-    "pc-react": {
-        url: "direct:http://192.168.101.96:8090/pointcloud_frontend/project_template.git",
+    "react-PC": {
+        url: "direct:http://192.168.101.96:8090/pointcloud_frontend/basiclibrary/pcloud-template-pc.git",
     },
-    // "py-vue": {
-    //     url: "../templates/py-vue",
-    //     bootstrap: "yarn serve",
-    //     install: "yarn install",
-    // },
+    "react-Mobile": {
+        url: "direct:http://192.168.101.96:8090/pointcloud_frontend/basiclibrary/pcloud-template-mobile.git",
+    },
 }
